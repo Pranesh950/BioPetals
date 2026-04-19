@@ -50,6 +50,23 @@ Run the bundled example script:
 python examples/run_biology_inference.py
 ```
 
+Run the Colab notebook from this fork:
+
+[Open in Colab](https://colab.research.google.com/github/Pranesh950/BioPetals/blob/main/examples/run_biology_inference_colab.ipynb)
+
+If you prefer copy-pasting cells into Colab, use `%pip` (not plain `pip`) in the install cell:
+
+```python
+%pip -q install -U pip setuptools wheel
+%pip -q install --upgrade --force-reinstall --no-cache-dir "numpy==1.26.4" "scipy==1.14.1"
+%pip -q install --upgrade --force-reinstall --no-cache-dir "protobuf==5.29.6" "grpcio-tools==1.71.2" "grpcio-status==1.71.2" "jedi>=0.19.2"
+%pip -q install --upgrade --no-cache-dir "bitsandbytes==0.41.1" "speedtest-cli==2.1.3" "tensor_parallel==1.0.23" "peft==0.8.2"
+%pip -q install --upgrade --no-cache-dir "hivemind==1.1.12" "transformers==4.43.1" "accelerate>=0.27.2" "huggingface-hub>=0.11.1,<1.0.0" "tokenizers>=0.13.3" "sentencepiece>=0.1.99" "packaging>=20.9" "humanfriendly" "async-timeout>=4.0.2" "Dijkstar>=2.6.0" "safetensors>=0.3.1"
+%pip -q install --upgrade --no-deps --no-cache-dir "git+https://github.com/Pranesh950/BioPetals.git"
+```
+
+After installing packages in Colab, restart the runtime once before running inference cells.
+
 Host this biology checkpoint in Petals:
 
 ```bash

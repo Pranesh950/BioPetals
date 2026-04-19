@@ -5,7 +5,7 @@ from contextvars import ContextVar
 from typing import Optional, Union
 
 import torch
-from hivemind import DHT, get_logger
+from hivemind.utils import get_logger
 from torch import nn
 
 from petals.client.config import ClientConfig
