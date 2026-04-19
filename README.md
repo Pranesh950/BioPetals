@@ -31,6 +31,33 @@ print(tokenizer.decode(outputs[0]))  # A cat sat on a mat...
     🚀 &nbsp;<b><a href="https://colab.research.google.com/drive/1uCphNY7gfAUkdDrTx21dZZwCOUDCMPw8?usp=sharing">Try now in Colab</a></b>
 </p>
 
+## Biology quickstart (OpenBioLLM)
+
+Petals includes a convenience loader for a biology-oriented checkpoint, [aaditya/Llama3-OpenBioLLM-8B](https://huggingface.co/aaditya/Llama3-OpenBioLLM-8B), which is compatible with Petals because it uses the `llama` architecture.
+
+```python
+from petals.client import load_biology_model
+
+tokenizer, model = load_biology_model()
+inputs = tokenizer("Summarize the role of ribosomes in translation", return_tensors="pt")["input_ids"]
+outputs = model.generate(inputs, max_new_tokens=80)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+```
+
+Run the bundled example script:
+
+```bash
+python examples/run_biology_inference.py
+```
+
+Host this biology checkpoint in Petals:
+
+```bash
+python -m petals.cli.run_server aaditya/Llama3-OpenBioLLM-8B
+```
+
+If there are no public peers for this model, start your own swarm and connect clients to it. See the [Launch a private swarm](https://github.com/bigscience-workshop/petals/wiki/Launch-your-own-swarm) guide.
+
 🦙 **Want to run Llama?** [Request access](https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct) to its weights, then run `huggingface-cli login` in the terminal before loading the model. Or just try it in our [chatbot app](https://chat.petals.dev).
 
 🔏 **Privacy.** Your data will be processed with the help of other people in the public swarm. Learn more about privacy [here](https://github.com/bigscience-workshop/petals/wiki/Security,-privacy,-and-AI-safety). For sensitive data, you can set up a [private swarm](https://github.com/bigscience-workshop/petals/wiki/Launch-your-own-swarm) among people you trust.

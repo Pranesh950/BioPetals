@@ -16,3 +16,6 @@ PUBLIC_INITIAL_PEERS = [
 REACHABILITY_API_URL = "https://health.petals.dev"
 
 DTYPE_MAP = dict(bfloat16=torch.bfloat16, float16=torch.float16, float32=torch.float32, auto="auto")
+
+# A non-gated biology-oriented Llama checkpoint that is directly compatible with Petals.
+DEFAULT_BIO_MODEL_NAME = "aaditya/Llama3-OpenBioLLM-8B"
